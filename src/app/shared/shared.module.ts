@@ -1,21 +1,33 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from './../material/material.module';
 import { HeaderComponent } from './header/header.component';
+import { StatusPipe } from './pipes/status.pipe';
+import {PhonePipe} from './pipes/phone.pipe';
+import { ModuloDirective } from './directives/task.directive';
 
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    StatusPipe,
+    PhonePipe,
+    ModuloDirective
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ],
   exports : [
-    HeaderComponent
+    HeaderComponent,
+    StatusPipe,
+    PhonePipe,
+    ModuloDirective
+
   ]
 })
 export class SharedModule { }

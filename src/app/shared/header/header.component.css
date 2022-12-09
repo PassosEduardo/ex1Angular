@@ -1,0 +1,8 @@
+.mat-toolbar-single-row{
+justify-content: space-between;
+}
+
+.active{
+    background-color: blue;
+    color: white !important;
+}

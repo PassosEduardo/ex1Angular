@@ -1,15 +1,17 @@
 
-    <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{this.modulo?.title}}
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <ul>
-            <li><b>Professor:</b>{{this.modulo?.professor}}</li>
-            <li><b>Data Início:</b>{{this.modulo?.dataInicio}}</li>
-            <li><b>Data Término:</b>{{this.modulo?.dataTermino}}</li>
-            <li><b>Status:</b>{{this.modulo?.status}}</li>
-        </ul>
-      </mat-expansion-panel>
- 
+<mat-expansion-panel hideToggle *ngIf="modulo" [moduloDirective]="modulo.status">
+    <mat-expansion-panel-header>
+      <!-- <mat-panel-title [class]="this.modulo.status? 'completed' :''"> -->
+      <mat-panel-title [ngClass]="{'completed' : this.modulo.status}">
+        <mat-checkbox [checked]="modulo.status" (change)="changeStatus()"></mat-checkbox>   
+        {{this.modulo.title}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ul>
+        <li><b>Professor:</b>{{this.modulo.professor}}</li>
+        <li><b>Contato Prof:</b>{{this.modulo.telProf | phone }}</li>
+        <li><b>Data Início:</b>{{ this.modulo.dataInicio | date:"dd/MM/yy"}}</li>
+        <li><b>Data Término:</b>{{this.modulo.dataTermino | date:"dd/MM/yy"}}</li>
+        <li><b>Status:</b>{{this.modulo.dataTermino | status }}</li>
+    </ul>
+  </mat-expansion-panel>
